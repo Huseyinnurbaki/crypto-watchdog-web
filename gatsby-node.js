@@ -18,5 +18,24 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
         }
     });
     });
+    // cryptos
+    const configsResponse = await fetch('http://localhost:3000/crypto-watchdog/configs');
+    const configs = await configsResponse.json() || {};
+
+        createNode({
+            configs,
+            id: createNodeId(`configs`),
+            parent: null,
+            children: [],
+            internal: {
+                type: 'configs',
+                content: JSON.stringify(configs),
+                contentDigest: createContentDigest(configs)
+            }
+        });
+
+
+
+
     return
 };

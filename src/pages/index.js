@@ -1,36 +1,62 @@
-import * as React from "react"
+import React from "react";
 import { useStaticQuery, graphql } from 'gatsby';
+import BubbleUI from "react-bubble-ui";
+import "react-bubble-ui/dist/index.css";
+import Bubble from "../components/bubble";
 import { Helmet } from 'react-helmet';
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+const appStyles = {
+  pageStyles: {
+    color: "#232129",
+    padding: 96,
+    fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  },
+  headingStyles: {
+    marginTop: 0,
+    marginBottom: 64,
+    maxWidth: 320,
+  },
+  bubbleWrap: {
+    backgroundColor: '#E2E9F2',
+    width: '50%',
+    height: 500,
+    borderWidth: '1px',
+    borderColor: 'red',
+    borderRadius: '100%',
+
+  },
+  childStyle: {
+    width: '100%',
+    borderRadius: '50%',
+  }
+};
+
+const options = {
+  size: 170,
+  minSize: 70,
+  gutter: 0,
+  provideProps: false,
+  numCols: 9,
+  fringeWidth: 10,
+  yRadius: 160,
+  xRadius: 130,
+  cornerRadius: 0,
+  showGuides: false,
+  compact: true,
+  gravitation: 2,
 }
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const tableStyle =  {
-  fontFamily: 'arial',
-  border: 'collapse',
-  width: '100%'
-}
-
-const rows = {
-  border: '1px solid #dddddd',
-  text: 'align-left',
-  padding: '8px'
-}
-
-
-
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
+      configs {
+        id
+        configs {
+          HOURLY_PERCENTAGE
+          DAILY_PERCENTAGE
+          COIN_GECKO_PAGE_LIMIT
+          BITQUERY_NEW_LISTED_BSC_COINS_ENABLED
+        }
+  }
       allCryptocurrencies {
         nodes {
           name
@@ -44,45 +70,37 @@ const IndexPage = () => {
   }
     }
   `);
-  console.log(data);
   const { allCryptocurrencies } = data;
+ 
+
+
+  const children = allCryptocurrencies?.nodes?.map((data, i) => {
+    return <Bubble data={data} key={i} style={appStyles.childStyle} />
+	});
+
   return (
-    <main style={pageStyles}>
+    <main style={appStyles.pageStyles}>
       <Helmet>
         <title>Crypto-Watchdog</title>
       </Helmet>
       <title>Home Page</title>
-      <h1 style={headingStyles}>
+      <h1 style={appStyles.headingStyles}>
         Crypto-Watchdog
         <br />
         <span role="img" aria-label="Party popper emojis">
           🎉🎉🎉
         </span>
       </h1>
-      <table style={tableStyle} >
-      <tr>
-        <th  style={rows}  >Name</th>
-        <th  style={rows} >Source</th>
-        <th  style={rows} >Symbol</th>
-        <th style={rows} >Price Change in 1h</th>
-        <th style={rows} >Price Change in 24h</th>
-        <th style={rows} >Current Price</th>
-      </tr>
-        {allCryptocurrencies.nodes.map((item, index) => {
-          return (
-            <tr>
-              <td style={rows}>{item.name}</td>
-              <td style={rows}>{item.source}</td>
-              <td style={rows}>{item.symbol}</td>
-              <td style={rows}>{item.priceChangePercentage1h}</td>
-              <td style={rows}>{item.priceChangePercentage24h}</td>
-              <td style={rows}>{item.price}</td>
-            </tr>
-          )
-        })}
-      </table>
+
+
+      <BubbleUI options={options} style={appStyles.bubbleWrap}>
+        {children}
+      </BubbleUI>
+
     </main>
   )
+
+
 }
 
 export default IndexPage
