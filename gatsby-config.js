@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: "/crypto-watchdog-web",
   siteMetadata: {
     siteUrl: "https://www.crypto-watchdog.com",
     title: "crypto-watchdog",

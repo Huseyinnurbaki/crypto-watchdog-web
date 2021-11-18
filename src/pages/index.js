@@ -1,7 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from 'gatsby';
 import BubbleUI from "react-bubble-ui";
-import "react-bubble-ui/dist/index.css";
 import Bubble from "../components/bubble";
 import { Helmet } from 'react-helmet';
 
@@ -10,20 +9,21 @@ const appStyles = {
     color: "#232129",
     padding: 96,
     fontFamily: "-apple-system, Roboto, sans-serif, serif",
+    backgroundColor: 'whitesmoke',
   },
   headingStyles: {
     marginTop: 0,
     marginBottom: 64,
-    maxWidth: 320,
+
   },
   bubbleWrap: {
-    backgroundColor: '#E2E9F2',
-    width: '50%',
+    backgroundColor: 'white',
+    width: '60%',
     height: 500,
-    borderWidth: '1px',
-    borderColor: 'red',
-    borderRadius: '100%',
-
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: '#F0F0F0',
+    borderRadius: '2%',
   },
   childStyle: {
     width: '100%',
@@ -32,18 +32,18 @@ const appStyles = {
 };
 
 const options = {
-  size: 170,
-  minSize: 70,
-  gutter: 0,
+  size: 180,
+  minSize: 50,
+  gutter: 10,
   provideProps: false,
-  numCols: 9,
-  fringeWidth: 10,
-  yRadius: 160,
+  numCols: 7,
+  fringeWidth: 120,
+  yRadius: 130,
   xRadius: 130,
-  cornerRadius: 0,
+  cornerRadius: 10,
   showGuides: false,
   compact: true,
-  gravitation: 2,
+  gravitation: 4,
 }
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -85,10 +85,10 @@ const IndexPage = () => {
       </Helmet>
       <title>Home Page</title>
       <h1 style={appStyles.headingStyles}>
-        Crypto-Watchdog
+        Crypto-Watchdog - Market Observer
         <br />
         <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
+          🐶💸
         </span>
       </h1>
 

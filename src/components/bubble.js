@@ -13,7 +13,7 @@ const isGeneratedColorDark = isDark(color)
         // backgroundColor: color+ "d0",
         borderRadius: '50%',
       }}
-      className={"Bubble"}
+      className="Bubble"
     >
 
         <div
