@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from 'gatsby';
 import AllCryptosTable from "../components/allCryptosTable";
-import NewCryptosTable from "../components/NewCryptosTable";
+import NewCryptosTable from "../components/newCryptosTable";
 import Header from "../components/header";
 import Seo from "../components/seo"
 import Layout from "../components/layout";
