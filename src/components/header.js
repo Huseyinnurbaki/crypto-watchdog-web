@@ -5,7 +5,7 @@ import '../styles/global.css';
 const Header = () => {
   return (
     <header>
-      <img src={"https://i.imgur.com/CUhG8mC.png"} width='%33' height="100" alt="crypto-watchdog" />
+      <img src={"https://i.imgur.com/CUhG8mC.png"} width='%30' height="100" alt="crypto-watchdog" />
       <Social />
     </header>
   );

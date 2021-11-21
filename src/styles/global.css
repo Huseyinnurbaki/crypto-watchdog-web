@@ -9,9 +9,17 @@ html {
 }
 
 main {
-    padding-top: 15%;
-    padding-right: 6%;
-    padding-left: 10%;
+    padding-top: 100px;
+    padding-right: 8%;
+    padding-left: 12%;
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        padding-top: 50px;
+        padding-right: 12%;
+        padding-left: 12%;
+    }
 }
 
 header {
@@ -21,9 +29,17 @@ header {
     position: fixed;
     display: flex;
     justify-content: space-between;
+    padding: 20px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 935px) {
+    header img {
+      height: 100%;
+      width: 80px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
     header img {
       height: 100%;
       width: 50px;

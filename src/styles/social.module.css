@@ -1,5 +1,5 @@
 .navSocial {
-
+    padding: 10px;
 }
 
 .navSocial a {
@@ -23,7 +23,14 @@
     justify-content: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 935px) {
+    .navSocial li {
+        height: 40px; 
+        width: 40px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
     .navSocial li {
         height: 30px; 
         width: 30px;
