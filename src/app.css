@@ -26,24 +26,6 @@ html {
     justify-content:space-between;
 }
 
-.headerLeft {
-    height: 30px;
-    width: 33%;
-    background-color: aqua;
-}
-.headerCenter {
-    height: 30px;
-    width: 33%;
-    background-color:aliceblue ;
-}
-.headerRight {
-    height: 30px;
-    width: 33%;
-    background-color:bisque;
-}
-
-
-
 .navSocial a {
   text-decoration: none;
   color: white;

@@ -33,12 +33,9 @@ export default function Header() {
           }}
         >
         <Box
-          sx={{
-            width: '33%',
-            p: 1,
-          }}
+          sx={{ p: 1 }}
         >
-          <img alt="12312" src={"https://i.imgur.com/CUhG8mC.png"} width='%33' height="100" />
+          <img alt="12312" src={"https://raw.githubusercontent.com/Huseyinnurbaki/notes/master/tmp/icon.webp"} width='%33' height="100" />
 
 
 
@@ -49,13 +46,15 @@ export default function Header() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-end',
+            right: 0,
+            height: 90
           }}
         >
           <div className="navSocial">
             <ul>
               {socialIcon.map((icon, i) => (
                 <li key={i}>
-                  <a target="_blank" href={icon.url}>
+                  <a target="_blank" rel="noreferrer" href={icon.url}>
                     <FontAwesomeIcon icon={icon.icon} />
                   </a>
                   <span className="tooltiptext">

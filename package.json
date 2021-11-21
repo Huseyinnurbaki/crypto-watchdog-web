@@ -12,7 +12,7 @@
     "develop": "gatsby clean && gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve",
+    "serve": "gatsby clean && gatsby build && gatsby serve",
     "clean": "gatsby clean"
   },
   "dependencies": {
