@@ -3,8 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import AllCryptosTable from "../components/allCryptosTable";
 import NewCryptosTable from "../components/NewCryptosTable";
 import Header from "../components/header";
-import { Helmet } from 'react-helmet';
-import favicon from '../images/favicon.ico'
+import Seo from "../components/seo"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -44,15 +43,10 @@ const IndexPage = () => {
   const { allCryptocurrencies, allNewcryptos } = data;
   return (
     <main>
-      <Helmet>
-        <title>Crypto-Watchdog</title>
-        <link rel="icon" href={favicon} />
-      </Helmet>
-      <title>Home Page</title>
+      <Seo />
       <Header />
-
-          <AllCryptosTable data={allCryptocurrencies}  />
-          <NewCryptosTable data={allNewcryptos} />
+      <AllCryptosTable data={allCryptocurrencies}  />
+      <NewCryptosTable data={allNewcryptos} />
     </main>
   )
 
