@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import favicon from '../images/favicon.ico'
 
-function Seo({ description, lang, meta, image, title, pathname  }) {
+const Seo = ({ description, lang, meta, image, title, pathname  }) => {
   const { site } = useStaticQuery(
     graphql`
       query {

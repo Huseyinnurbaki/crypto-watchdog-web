@@ -1,0 +1,12 @@
+.tableHeader {
+    color: white;
+    margin-top: 20;
+}
+
+.gradient {
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #1E262E;
+    padding: 8px;
+}

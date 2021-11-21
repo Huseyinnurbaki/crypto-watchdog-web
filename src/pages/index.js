@@ -4,6 +4,7 @@ import AllCryptosTable from "../components/allCryptosTable";
 import NewCryptosTable from "../components/NewCryptosTable";
 import Header from "../components/header";
 import Seo from "../components/seo"
+import Layout from "../components/layout";
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -16,7 +17,7 @@ const IndexPage = () => {
           COIN_GECKO_PAGE_LIMIT
           BITQUERY_NEW_LISTED_BSC_COINS_ENABLED
         }
-  }
+      }
       allCryptocurrencies {
         nodes {
           name
@@ -27,30 +28,33 @@ const IndexPage = () => {
           symbol
           id
         }
-  }
-  allNewcryptos {
-    nodes {
-      address
-      holders
-      name
-      network
-      source
-      symbol
-    }
-  }
+      }
+      allNewcryptos {
+        nodes {
+          address
+          holders
+          name
+          network
+          source
+          symbol
+        }
+      }
     }
   `);
   const { allCryptocurrencies, allNewcryptos } = data;
+
   return (
-    <main>
+    <Layout>
       <Seo />
+      <title>Home Page</title>
       <Header />
-      <AllCryptosTable data={allCryptocurrencies}  />
-      <NewCryptosTable data={allNewcryptos} />
-    </main>
+      <main>
+        <AllCryptosTable data={allCryptocurrencies} />
+        <NewCryptosTable data={allNewcryptos} />
+      </main>
+      {/* <footer></footer> */}
+    </Layout>
   )
-
-
 }
 
-export default IndexPage
+export default IndexPage;

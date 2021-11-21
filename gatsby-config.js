@@ -6,6 +6,15 @@ module.exports = {
     author: "Huseyinnurbaki",
     keywords: ["cryptocurrencies", "cryptos", "coins", "coingecko", "coinmarketcap", "tokensniffer", "poocoin", "bitcoin", "doge", "elon"]
   },
-  plugins: ["gatsby-plugin-react-helmet"],
-  
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-fontawesome-css`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Crypto Watchdog',
+        icon: 'src/images/crypto-watchdog.png',
+      },
+    }
+  ],
 };
