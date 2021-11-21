@@ -1,11 +1,13 @@
 const fetch = require('node-fetch');
+const config = require('gatsby-plugin-config').default;
 const CRYPTOS_NODE_TYPE = "cryptocurrencies"
 const NEW_CRYPTOS_NODE_TYPE = "newcryptos"
+const CW_SVC_URL = config.CW_SVC_URL;
 
 exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => {
     const { createNode } = actions;
     // cryptos
-    const cryptocurrinciesResponse = await fetch('http://localhost:3000/crypto-watchdog/cryptocurrencies');
+    const cryptocurrinciesResponse = await fetch(`http://${CW_SVC_URL}/crypto-watchdog/cryptocurrencies`);
     const result = await cryptocurrinciesResponse.json() || [];
     result.forEach((node, index) => {
     createNode({
@@ -22,7 +24,7 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
     });
 
     // cryptos
-    const newCoinsResponse = await fetch('http://localhost:3000/crypto-watchdog/newbies');
+    const newCoinsResponse = await fetch(`http://${CW_SVC_URL}/crypto-watchdog/newbies`);
     let newCoinsResult = await newCoinsResponse.json();
     if(!newCoinsResult.length) newCoinsResult = dummyModel
     newCoinsResult.forEach((node, index) => {
@@ -39,7 +41,7 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
     });
     });
     // configs
-    const configsResponse = await fetch('http://localhost:3000/crypto-watchdog/configs');
+    const configsResponse = await fetch(`http://${CW_SVC_URL}/crypto-watchdog/configs`);
     const configs = await configsResponse.json() || {};
 
         createNode({
