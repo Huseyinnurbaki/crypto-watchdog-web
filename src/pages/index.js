@@ -1,50 +1,11 @@
 import React from "react";
 import { useStaticQuery, graphql } from 'gatsby';
-import BubbleUI from "react-bubble-ui";
-import Bubble from "../components/bubble";
+import AllCryptosTable from "../components/allCryptosTable";
+import NewCryptosTable from "../components/NewCryptosTable";
+import Header from "../components/header";
 import { Helmet } from 'react-helmet';
+import favicon from '../images/favicon.ico'
 
-const appStyles = {
-  pageStyles: {
-    color: "#232129",
-    padding: 96,
-    fontFamily: "-apple-system, Roboto, sans-serif, serif",
-    backgroundColor: 'whitesmoke',
-  },
-  headingStyles: {
-    marginTop: 0,
-    marginBottom: 64,
-
-  },
-  bubbleWrap: {
-    backgroundColor: 'white',
-    width: '60%',
-    height: 500,
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: '#F0F0F0',
-    borderRadius: '2%',
-  },
-  childStyle: {
-    width: '100%',
-    borderRadius: '50%',
-  }
-};
-
-const options = {
-  size: 180,
-  minSize: 50,
-  gutter: 10,
-  provideProps: false,
-  numCols: 7,
-  fringeWidth: 120,
-  yRadius: 130,
-  xRadius: 130,
-  cornerRadius: 10,
-  showGuides: false,
-  compact: true,
-  gravitation: 4,
-}
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -68,35 +29,30 @@ const IndexPage = () => {
           id
         }
   }
+  allNewcryptos {
+    nodes {
+      address
+      holders
+      name
+      network
+      source
+      symbol
+    }
+  }
     }
   `);
-  const { allCryptocurrencies } = data;
- 
-
-
-  const children = allCryptocurrencies?.nodes?.map((data, i) => {
-    return <Bubble data={data} key={i} style={appStyles.childStyle} />
-	});
-
+  const { allCryptocurrencies, allNewcryptos } = data;
   return (
-    <main style={appStyles.pageStyles}>
+    <main>
       <Helmet>
         <title>Crypto-Watchdog</title>
+        <link rel="icon" href={favicon} />
       </Helmet>
       <title>Home Page</title>
-      <h1 style={appStyles.headingStyles}>
-        Crypto-Watchdog - Market Observer
-        <br />
-        <span role="img" aria-label="Party popper emojis">
-          🐶💸
-        </span>
-      </h1>
+      <Header />
 
-
-      <BubbleUI options={options} style={appStyles.bubbleWrap}>
-        {children}
-      </BubbleUI>
-
+          <AllCryptosTable data={allCryptocurrencies}  />
+          <NewCryptosTable data={allNewcryptos} />
     </main>
   )
 

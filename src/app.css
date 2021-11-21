@@ -1,4 +1,124 @@
 body {
     height: 100%;
-    background-color: whitesmoke;
+    padding: 108px;
+    background-color: #1E262E;
+    font-family: "-apple-system, Roboto, sans-serif, serif",
+}
+
+html {
+    scroll-behavior: smooth;
+}
+.gradnt {
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #1E262E;
+}
+.headerContainer {
+    height: 90px;
+    width: 100%;
+    z-index: 12;
+    background-color:rebeccapurple;
+    position: fixed;
+    top: 0px;
+    left: 0%;
+    align-items: flex-start;
+    justify-content:space-between;
+}
+
+.headerLeft {
+    height: 30px;
+    width: 33%;
+    background-color: aqua;
+}
+.headerCenter {
+    height: 30px;
+    width: 33%;
+    background-color:aliceblue ;
+}
+.headerRight {
+    height: 30px;
+    width: 33%;
+    background-color:bisque;
+}
+
+
+
+.navSocial a {
+  text-decoration: none;
+  color: white;
+  font-size: 21px;
+}
+
+.navSocial {
+  width: 15vw;
+  align-self: center;
+
+}
+
+.navSocial svg {
+  display: block;
+}
+
+.navSocial ul {
+  margin: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  list-style: none;
+  float: right;
+}
+
+.navSocial li {
+  height: 48px;
+  width: 48px;
+  border: 3px solid white;
+  border-radius: 50%;
+  margin-left: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.navSocial li:hover {
+  background-color: white;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+
+.navSocial li:hover a {
+  color: #191919;
+}
+
+.navSocial li:hover .tooltiptext {
+  opacity: 0.8;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+}
+
+.tooltiptext {
+  opacity: 0;
+  width: 120px;
+  background-color: #303030;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 140%;
+  right: -125%;
+  margin-left: -60px;
+}
+
+.tooltiptext:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #303030 transparent;
 }

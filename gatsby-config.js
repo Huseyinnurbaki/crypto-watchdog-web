@@ -4,4 +4,5 @@ module.exports = {
     title: "crypto-watchdog",
   },
   plugins: ["gatsby-plugin-react-helmet"],
+  
 };
