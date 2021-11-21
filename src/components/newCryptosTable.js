@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "./table";
 
-const columns = ["name", "symbol", "price", "holders", "network", "source"];
+const columns = ["name", "symbol", "holders", "network", "source", "address"];
 
 const options = {
   selectableRowsHeader: false,
