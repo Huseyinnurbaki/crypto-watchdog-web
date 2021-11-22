@@ -1,6 +1,8 @@
 require("dotenv").config({
   path: `.env`,
 })
+const config = require('gatsby-plugin-config').default;
+const GA_TRACKING_ID = config.GA_TRACKING_ID;
 
 module.exports = {
   siteMetadata: {
@@ -12,6 +14,17 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          GA_TRACKING_ID,
+        ],
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
     `gatsby-plugin-fontawesome-css`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -19,6 +32,6 @@ module.exports = {
         name: 'Crypto Watchdog',
         icon: 'src/images/crypto-watchdog.png',
       },
-    }
+    },
   ],
 };
