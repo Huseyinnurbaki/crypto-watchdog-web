@@ -39,18 +39,27 @@ const IndexPage = () => {
           symbol
         }
       }
+      site {
+        siteMetadata {
+          title
+          description
+          author
+          keywords
+          siteUrl
+          }
+        buildTime
+        }
     }
   `);
-  const { allCryptocurrencies, allNewcryptos } = data;
-
+  const { allCryptocurrencies, allNewcryptos, site } = data;
   return (
     <Layout>
-      <Seo />
+      <Seo site={site} />
       <title>Home Page</title>
       <Header />
       <main>
-        <AllCryptosTable data={allCryptocurrencies} />
-        <NewCryptosTable data={allNewcryptos} />
+        <AllCryptosTable data={allCryptocurrencies} site={site} />
+        <NewCryptosTable data={allNewcryptos}  site={site} />
       </main>
       {/* <footer></footer> */}
     </Layout>

@@ -1,5 +1,6 @@
 import React from "react";
 import Table from "./table";
+import { getMinDiff } from '../utils/timeutils';
 
 const cellProps = {
   style: {
@@ -30,10 +31,12 @@ const columns = [{
 },
 {
   name: "priceChangePercentage1h",
-  options: columnOptions
+  label: "1h Change %",
+  options: columnOptions,
 },
 {
   name: "priceChangePercentage24h",
+  label: "24h Change %",
   options: columnOptions
 },
 {
@@ -45,12 +48,12 @@ const options = {
   search: true,
   responsive: "standard",
   selectableRowsHeader: false,
-  selectableRows: 'none',
-  rowsPerPage: 15
+  selectableRows: 'none'
 };
 
 const AllCryptosTable = (props) => {
-  const { data } = props;
+  const { data, site } = props;
+  const diffMins = `Last Updated: ${getMinDiff(site.buildTime)} minutes ago`
 
   return (
     <Table
@@ -58,6 +61,7 @@ const AllCryptosTable = (props) => {
       options={options}
       columns={columns}
       tableHeader="Crypto-Watchdog Findings 🤑💸"
+      tableTitle={diffMins}
     />
   )
 }

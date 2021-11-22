@@ -1,25 +1,9 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import favicon from '../images/favicon.ico'
 
-const Seo = ({ description, lang, meta, image, title, pathname  }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            keywords
-            siteUrl
-          }
-        }
-      }
-    `
-  )
+const Seo = ({ site, description, lang, meta, image, title, pathname  }) => {
   const metaDescription = description || site.siteMetadata.description
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null
   return (
