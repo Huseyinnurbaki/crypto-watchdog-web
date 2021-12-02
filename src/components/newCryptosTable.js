@@ -2,7 +2,19 @@ import React from "react";
 import Table from "./table";
 import { getMinDiff } from '../utils/timeutils';
 
-const columns = ["name", "symbol", "holders", "network", "source", "address"];
+const columns = ["name", "symbol", "holders", "network", "source", 
+  {
+    name: "address",
+    options: {
+      filter: false,
+      customBodyRender: (value) => {
+        const poocoinAddress = `https://poocoin.app/tokens/${value}`
+        return (
+          <a target="_blank" rel="noopener noreferrer" href={`${poocoinAddress}`}>💩{value}</a>
+        );
+      }
+    }
+  }];
 
 const options = {
   responsive: "standard",
