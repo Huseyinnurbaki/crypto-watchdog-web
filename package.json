@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "deploy": "gatsby build && cp CNAME public/ && gh-pages -d public",
+    "ci-deploy": "gatsby build && cp CNAME public/ && gh-pages -d public  -r https://Huseyinnurbaki:$GH_TOKEN@github.com/Huseyinnurbaki/crypto-watchdog.git",
     "develop": "gatsby clean && gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
