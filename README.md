@@ -1,3 +1,5 @@
+### Inactive since March 2022
+
 # Crypto Watchdog Web
 ## 🚀 Quick start
 
